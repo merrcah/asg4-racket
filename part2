@@ -1,0 +1,8 @@
+; part 2
+(define (maxval lst)
+  (cond ((null? lst) #f) 
+        ((null? (cdr lst)) (car lst))
+        (else (let ((rest (maxval (cdr lst))))
+                (if (> (car lst) rest)
+                    (car lst)
+                    rest)))))
