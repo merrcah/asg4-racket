@@ -1,0 +1,9 @@
+; part 3
+(define (nestedlist lst)
+  (cond ((null? lst) #f)
+        ((not (pair? lst)) lst)
+        (else (let ((rest (nestedlist (cdr lst))))
+                (let ((currentmax (nestedlist (car lst))))
+                  (if (or (not rest) (> currentmax rest))
+                      currentmax
+                      rest))))))
